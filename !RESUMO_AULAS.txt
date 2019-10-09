@@ -1,0 +1,160 @@
+#CONFIGURAÇÃO DO LARAVEL
+
+#Atualizar o Composer
+composer selfupdate
+
+#Criar projeto
+composer create-project --prefer-dist laravel/laravel:"5.5" ImovelWeb
+Clicar em Reload no Apache
+
+#Configurar o GIT dentro da pasta do projeto
+git config --global user.name "Nome"
+git config --global user.email "seu email do git"
+git init
+git remote add origin https://github.com/seu_user/seu_repositorio.git
+
+#Commit/Push inicial
+git add .
+git commit -m "Commit inicial"
+git push origin master
+
+#Criando sistema de login
+php artisan make:auth
+
+#Criando banco de dados no HeidiSQL
+CREATE DATABASE imovelweb;
+
+#Adicionando usuário no HeidiSQL
+* Gerenciador de usuários
+* Adicionar
+* Usuário: homestead
+* Do servidor: %
+* Senha: secret
+* Marcar todas as opções de Privilégios globais
+
+#Editando arquivo .env na raíz do projeto
+APP_NAME=ImovelWeb
+APP_URL=http://imovelweb.test
+DB_DATABASE=imovelweb
+
+#Terminando configuração do login no terminal:
+php artisan migrate
+
+#Instalando o AdminLTE for Laravel (https://github.com/jeroennoten/Laravel-AdminLTE)
+composer require jeroennoten/laravel-adminlte
+php artisan vendor:publish --provider="JeroenNoten\LaravelAdminLte\ServiceProvider" --tag=assets
+php artisan make:adminlte
+php artisan vendor:publish --provider="JeroenNoten\LaravelAdminLte\ServiceProvider" --tag=config
+php artisan vendor:publish --provider="JeroenNoten\LaravelAdminLte\ServiceProvider" --tag=translations
+php artisan vendor:publish --provider="JeroenNoten\LaravelAdminLte\ServiceProvider" --tag=views
+
+#Traduzindo o Painel de Usuário
+Abrir arquivo config/app.php e mudar as configurações:
+'timezone' => 'America/Sao_Paulo',
+'locale' => 'pt-br',
+
+#Documentação do Laravel
+https://laravel.com/docs/5.5
+
+#Renomeando os títulos para o nome do seu projeto
+arquivo resources/views/welcome.blade.php
+Linha 8:
+<title>Laravel</title>
+Substituir Laravel
+
+Linhas 81 a 83:
+<div class="title m-b-md">
+        Laravel
+</div>
+Substituir Laravel
+
+arquivo resources/views/home.blade.php
+Linha 3:
+@section('title', 'AdminLTE')
+Substituir AdminLTE
+
+arquivo config/adminlte.php
+Linha 16:
+'title' => 'AdminLTE 2',
+Substituir AdminLTE 2
+
+Linha 33:
+'logo' => '<b>Admin</b>LTE',
+Substituir Admin (parte em negrito) e LTE (parte normal)
+
+Linha 35:
+'logo_mini' => '<b>A</b>LT',
+Substituir A (iniciais em negrito) e LT (iniciais normais)
+
+
+
+
+#COMANDOS DE MIGRAÇÃO
+
+#Criar tabela
+php artisan make:migration create_proprietarios_table
+
+#Alterar tabela
+php artisan make:migration add_timestamps_proprietarios_table --table=proprietarios
+
+#Executar migração
+php artisan migrate
+
+#Executar rollback
+php artisan migrate:rollback
+
+#Verificar status
+php artisan migrate:status
+
+#Executar comando toda vez que alterar nome ou excluir arquivo de migration
+composer dumpautoload
+
+#Explodir seu banco de dados e migrar tudo do começo
+php artisan migrate:fresh
+
+
+
+
+
+
+#SEED (INSERÇÃO DE DADOS NO BANCO)
+
+#Criar arquivo seeder
+php artisan make:seeder UsersTableSeeder
+
+#Colocar dentro do método run()
+        DB::table('users')->insert([
+            'name' => str_random(10),
+            'email' => str_random(10).'@gmail.com',
+            'password' => bcrypt('secret'),
+        ]);
+        
+#Editar arquivo DatabaseSeeder.php (na pasta seeds), dentro do método run()
+$this->call(UsersTableSeeder::class);
+
+#Executar seeders
+php artisan db:seed
+
+#Executar um seed específico
+php artisan db:seed --class=UsersTableSeeder
+
+
+
+
+
+
+
+
+
+#ALTERANDO O MENU DO PAINEL#
+pasta config -> arquivo adminlte.php
+
+Menu está dividido em blocos, delimitados por colchetes []. Estão por volta da linha 100.
+Cláusula "can" em um bloco determina quem poderá ver o bloco. Sem ela, todos os usuários conseguem.
+
+Ícones:
+'icon' => 'fas fa-fw fa-user-tie',
+
+Site para pegar ícones:
+fontawesome.com
+Pesquisar ícone, entrar na página dele e clicar no botão Start Using This Icon. Copiar o nome da classe para o código conforme o exemplo acima.
