@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'ImovelWeb',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Imovel</b>Web',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '<b>I</b>W',
 
     /*
     |--------------------------------------------------------------------------
@@ -107,15 +107,62 @@ return [
     */
 
     'menu' => [
-        [
-            'text' => 'search',
-            'search' => true,
-        ],
         ['header' => 'main_navigation'],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Corretores',
+            'icon' => 'fas fa-fw fa-user-tie',
+            'submenu' => [
+                [
+                    'text' => 'Listar corretores',
+                    'icon' => 'fas fa-fw fa-address-book',
+                ],
+                [
+                    'text' => 'Incluir corretor',
+                    'icon' => 'fas fa-fw fa-user-plus',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Proprietários',
+            'icon' => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'Listar proprietários',
+                    'icon' => 'fas fa-fw fa-address-book',
+                ],
+                [
+                    'text' => 'Incluir proprietário',
+                    'icon' => 'fas fa-fw fa-user-plus',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Imóveis',
+            'icon' => 'fas fa-fw fa-home',
+            'submenu' => [
+                [
+                    'text' => 'Listar imóveis',
+                    'icon' => 'fas fa-fw fa-list',
+                ],
+                [
+                    'text' => 'Incluir imóvel',
+                    'icon' => 'fas fa-fw fa-plus',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Aluguéis',
+            'icon' => 'fas fa-fw fa-dollar-sign',
+            'submenu' => [
+                [
+                    'text' => 'Listar aluguéis',
+                    'icon' => 'fas fa-fw fa-list',
+                ],
+                [
+                    'text' => 'Incluir aluguel',
+                    'icon' => 'fas fa-fw fa-plus',
+                ],
+            ],
         ],
         [
             'text'        => 'pages',
