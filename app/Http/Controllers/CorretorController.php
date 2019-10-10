@@ -15,6 +15,9 @@ class CorretorController extends Controller
     public function index()
     {
         //
+        $corretores = Corretor::all();
+
+        return view('corretores.index', $corretores);
     }
 
     /**
