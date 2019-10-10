@@ -210,3 +210,42 @@ Na pasta routes, criar uma pasta com o nome da tabela (corretores)
 Dentro da nova pasta, criar um arquivo chamado index.blade.php
 (Todo arquivo criado dentro da pasta views deve terminar em blade.php)
 
+Ir no repositório do Laravel no github:
+https://github.com/jeroennoten/laravel-adminlte
+
+Na seção 4: Usage, existe um código a ser colocado no blade:
+@extends('adminlte::page')
+
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
+
+@section('content')
+    <p>Welcome to this beautiful admin panel.</p>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
+
+
+Copiar e colar este código no arquivo blade, e trocar os textos:
+@section('title', 'Dashboard')
+Trocar Dashboard -> título da página
+
+<h1>Dashboard</h1>
+Trocar Dashboard -> header da página
+
+<p>Welcome to this beautiful admin panel.</p>
+Trocar texto entre <p> -> conteúdo da página
+
+De volta no arquivo config/adminlte.php:
+Adicionar parâmetro no item de menu que irá linkar com o model:
+'route' => 'corretores.index',
+corretores.index é o que consta no arquivo web.php, na parte ->name('corretores.index');

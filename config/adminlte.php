@@ -115,6 +115,7 @@ return [
                 [
                     'text' => 'Listar corretores',
                     'icon' => 'fas fa-fw fa-address-book',
+                    'route' => 'corretores.index',
                 ],
                 [
                     'text' => 'Incluir corretor',
