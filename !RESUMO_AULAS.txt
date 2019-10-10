@@ -184,6 +184,10 @@ php artisan make:model NomeDaTabela
 php artisan make:model Corretor -c -r
 Foi criado um model dentro da pasta app. Criou também um controller dentro da pasta app/Http/Controllers
 
+No Model:
+colocar dentro da classe o nome da tabela:
+protected $table="corretores";
+
 No controller:
 função  index: Exibir uma relação de registro na tela 
         create: Exibir um formulário HTML para ser solicitado dados ao usuário
@@ -192,3 +196,17 @@ função  index: Exibir uma relação de registro na tela
         edit: Exibir um formulário com os dados de um determinado registro para edição
         update: Recebe os dados do formulário (via edit) e atualiza no banco de dados
         destroy: Exclui um determinado registro do banco de dados
+
+Colocar dentro da função index():
+        $corretores = Corretor::all();
+
+        return view('corretores.index', $corretores);
+
+No arquivo routes/web.php, adicionar no final:
+//Rotas da tabela Corretores
+Route::get('/corretores','CorretorController@index')->name('corretores.index');
+
+Na pasta routes, criar uma pasta com o nome da tabela (corretores)
+Dentro da nova pasta, criar um arquivo chamado index.blade.php
+(Todo arquivo criado dentro da pasta views deve terminar em blade.php)
+
