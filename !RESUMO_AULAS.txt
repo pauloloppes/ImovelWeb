@@ -158,3 +158,23 @@ Cláusula "can" em um bloco determina quem poderá ver o bloco. Sem ela, todos o
 Site para pegar ícones:
 fontawesome.com
 Pesquisar ícone, entrar na página dele e clicar no botão Start Using This Icon. Copiar o nome da classe para o código conforme o exemplo acima.
+
+
+
+
+
+#MVC
+Model: Manipulação de dados
+View: Interação com os usuários
+Control: Camada de controle
+
+
+
+
+#CRIANDO UM MODEL 
+php artisan make:model --help
+
+php artisan make:model NomeDaTabela
+
+php artisan make:model Corretor -c -r
+Foi criado um model dentro da pasta app. Criou também um controller dentro da pasta app/Http/Controllers
