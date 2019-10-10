@@ -162,6 +162,11 @@ Pesquisar ícone, entrar na página dele e clicar no botão Start Using This Ico
 
 
 
+#VERSÃO DOS COMPONENTES
+Arquivo composer.json contém as versões instaladas de todos os componentes.
+
+
+
 
 #MVC
 Model: Manipulação de dados
@@ -178,3 +183,12 @@ php artisan make:model NomeDaTabela
 
 php artisan make:model Corretor -c -r
 Foi criado um model dentro da pasta app. Criou também um controller dentro da pasta app/Http/Controllers
+
+No controller:
+função  index: Exibir uma relação de registro na tela 
+        create: Exibir um formulário HTML para ser solicitado dados ao usuário
+        store: Recebe os dados do formulário (via create) e envia para o banco de dados
+        show: Exibir uma página com os dados de um determinado registro
+        edit: Exibir um formulário com os dados de um determinado registro para edição
+        update: Recebe os dados do formulário (via edit) e atualiza no banco de dados
+        destroy: Exclui um determinado registro do banco de dados
