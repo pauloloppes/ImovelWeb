@@ -206,7 +206,7 @@ No arquivo routes/web.php, adicionar no final:
 //Rotas da tabela Corretores
 Route::get('/corretores','CorretorController@index')->name('corretores.index');
 
-Na pasta routes, criar uma pasta com o nome da tabela (corretores)
+Na pasta resources/views, criar uma pasta com o nome da tabela (corretores)
 Dentro da nova pasta, criar um arquivo chamado index.blade.php
 (Todo arquivo criado dentro da pasta views deve terminar em blade.php)
 
