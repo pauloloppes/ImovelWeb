@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Corretores')
+@section('title', 'Proprietários')
 
 @section('content_header')
-    <h1>Corretores</h1>
+    <h1>Proprietários</h1>
 @stop
 
 @section('content')
-    <p>Página de corretores.</p>
+    <p>Conteúdo da página de proprietários.</p>
 @stop
 
 @section('css')
