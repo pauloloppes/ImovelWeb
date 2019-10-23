@@ -249,3 +249,19 @@ De volta no arquivo config/adminlte.php:
 Adicionar parâmetro no item de menu que irá linkar com o model:
 'route' => 'corretores.index',
 corretores.index é o que consta no arquivo web.php, na parte ->name('corretores.index');
+
+
+
+
+
+BOOTSTRAP: versão 3.3.7
+Abrir documentação:
+https://getbootstrap.com/docs/3.3/
+
+Dentro do arquivo index.blade.php:
+dentro da seção content, copiar o código do panel (está na documentação do bootstrap):
+    <div class="panel panel-default">
+        <div class="panel-body">
+            Basic panel example
+        </div>
+    </div>
