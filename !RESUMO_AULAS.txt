@@ -278,3 +278,19 @@ Criar os botões: tag a
 Exemplos de botões:
 <a href="#" class="btn btn-info">Atualizar a tela</a>
 <a href="#" class="btn btn-success">Incluir novo corretor</a>
+
+código final da seção content de corretores:
+@section('content')
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Relação dos corretores cadastrados
+            <div class="pull-right">
+                <a href="#" class="btn btn-info">Atualizar a tela</a>
+                <a href="#" class="btn btn-success">Incluir novo corretor</a>
+            </div>
+        </div>
+        <div class="panel-body">
+            Basic panel example
+        </div>
+    </div>
+@stop
