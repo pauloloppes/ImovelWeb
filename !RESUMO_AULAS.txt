@@ -292,16 +292,24 @@ código final da seção content de corretores:
         <div class="panel-body">
             <table class="table table-striped table-hover">
                 <thead>
-                    <th>
-                        <td>ID</td>
-                        <td>Nome</td>
-                        <td>Telefone</td>
-                        <td>E-mail</td>
-                        <td>Ações</td>
-                    </th>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>E-mail</th>
+                        <th>Ações</th>
+                    </tr>
                 </thead>
                 <tbody>
-                
+                    @foreach($corretores as $corretor)
+                    <tr>
+                        <td>{{ $corretor->id }}</td>
+                        <td>{{ $corretor->nome }}</td>
+                        <td>{{ $corretor->fone }}</td>
+                        <td>{{ $corretor->email }}</td>
+                        <td>botaum</td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
