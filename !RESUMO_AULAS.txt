@@ -261,7 +261,20 @@ https://getbootstrap.com/docs/3.3/
 Dentro do arquivo index.blade.php:
 dentro da seção content, copiar o código do panel (está na documentação do bootstrap):
     <div class="panel panel-default">
+        <div class="panel-heading">
+            Basic heading example
+        </div>
         <div class="panel-body">
             Basic panel example
         </div>
+        <div class="panel-footer">
+            Basic footer example
+        </div>
     </div>
+
+Criar os botões: tag a
+<a href="link de destino" class="btn btn-tipo">Texto do botão</a>
+
+Exemplos de botões:
+<a href="#" class="btn btn-info">Atualizar a tela</a>
+<a href="#" class="btn btn-success">Incluir novo corretor</a>
