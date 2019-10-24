@@ -315,3 +315,33 @@ código final da seção content de corretores:
         </div>
     </div>
 @stop
+
+
+Criando seeder para popular a tabela:
+no terminal:
+php artisan make:seed CorretoresSeeder
+seeder foi gerado na pasta database
+
+No seeder, dentro do método run():
+declarar uma instância de Faker, para poder criar dados falsos:
+$faker = Faker\Factory::create('pt_BR');
+
+No github do Faker, tem opções de uso:
+https://github.com/fzaninotto/Faker
+
+Após o faker, criar um laço for para criar várias entradas:
+        for ($i=1; $i<100; $i++) {
+            DB::table('corretores')->insert(
+                [
+                    'nome' => $faker->name,
+                    'creci' => $faker->randomNumber(7),
+                    'fone' => $faker->cellphoneNumber,
+                    'email' => $faker->safeEmail,
+                ]
+            );
+        }
+
+Dentro dos [], delimitar os campos da tabela e colocar uma opção correspondente do Faker que foi encontrado no github.
+
+Rodar o seeder no terminal:
+php artisan db:seed --class=CorretoresSeeder
