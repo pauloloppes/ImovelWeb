@@ -290,7 +290,7 @@ código final da seção content de corretores:
             </div>
         </div>
         <div class="panel-body">
-            <table class="table table-striped table-hover">
+            <table id="table-corretores" class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -345,3 +345,29 @@ Dentro dos [], delimitar os campos da tabela e colocar uma opção correspondent
 
 Rodar o seeder no terminal:
 php artisan db:seed --class=CorretoresSeeder
+
+
+Melhorar a tabela de corretores:
+
+dentro da seção js do index.blade, colocar as tags <script></script>
+
+site datatables.net
+copiar a função no passo 2 e colar dentro da tag script:
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+substituir myTable para o id da tabela (table-corretores)
+
+Para traduzir o DataTable pra português, abrir os parênteses de DataTable() e colar entre eles:
+        {
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json"
+            }
+        } 
+ficaria assim:
+$('#table-corretores').DataTable( {
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json"
+            }
+        }
+    );
