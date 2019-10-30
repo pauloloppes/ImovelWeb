@@ -24,3 +24,4 @@ Route::get('/corretores','CorretorController@index')->name('corretores.index');
 Route::get('/proprietarios','ProprietariosController@index')->name('proprietarios.index');
 Route::get('/imoveis','ImoveisController@index')->name('imoveis.index');
 Route::get('/inquilinos','InquilinosController@index')->name('inquilinos.index');
+Route::resource('corretores','CorretorController');

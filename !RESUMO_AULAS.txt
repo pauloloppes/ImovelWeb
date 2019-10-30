@@ -413,3 +413,105 @@ $('#table-corretores').DataTable( {
     );
 
 
+
+
+
+
+#CRUD
+Criar rota para página de Incluir corretores:
+
+
+Gerar todas as rotas para as operações CRUD de corretores:
+* abrir arquivo routes/web.php
+* colocar a seguinte linha no final 
+Route::resource('corretores','CorretorController');
+
+No terminal, dentro da pasta do projeto:
+php artisan route:list
+
+Dentro da pasta resources/views/corretores, criar arquivos:
+create.blade.php
+edit.blade.php
+show.blade.php
+
+Colar dentro dos arquivos o template de página do adminlte:
+@extends('adminlte::page')
+
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
+
+@section('content')
+    <p>Welcome to this beautiful admin panel.</p>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
+
+
+Alterar o título da página (section title)
+Alterar cabeçalho da página (section content_header)
+Pode apagar conteúdo das seções css e js, que não serão utilizadas
+
+A página em si ficará na seção Content. Apagar o conteúdo dela para abrir espaço.
+Colocar um panel dentro do Content:
+    <form action="{{ router('corretores.store') }}" method="post" enctype="multipart/form-data">
+        <div class="panel-default">
+            <div class="panel-heading">
+            
+            </div>
+            <div class="panel-body">
+
+            </div>
+            <div class="panel-footer">
+            
+            </div>
+        </div>
+    </form>
+
+Dentro do heading, colocar um texto informando o que será feito na página. Exemplo:
+            <div class="panel-heading">
+                Informe os dados do corretor a ser cadastrado.
+            </div>
+
+Dentro do body, criar uma estrutura de labels+inputs dentro de form-groups para criar os campos de cadastro. Exemplo:
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="nome">Nome do corretor</label>
+                    <input type="text" name="nome" id="nome" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="creci">Número do CRECI</label>
+                    <input type="text" name="creci" id="creci" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="fone">Telefone de Contato</label>
+                    <input type="text" name="fone" id="fone" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="text" name="email" id="email" class="form-control">
+                </div>
+            </div>
+
+Dentro do footer, criar botões:
+            <div class="panel-footer">
+                <a href="{{ route('corretores.index') }}" class="btn btn-default">Voltar</a>
+                <button type="submit" class="btn btn-success">Gravar</button>
+            </div>
+
+
+No controller, dentro do método create:
+return view('corretores.create');
+
+
