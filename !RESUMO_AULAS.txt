@@ -89,6 +89,28 @@ Substituir A (iniciais em negrito) e LT (iniciais normais)
 
 
 
+
+#CLONANDO UM PROJETO PARA DENTRO DO LARAVEL
+Clonar dentro da pasta www, localizada na pasta de instalação do laravel.
+Por padrão é C:\laragon\www
+
+No terminal do Laragon, entrar na pasta do projeto clonado.
+Dentro da pasta executar comando:
+composer install
+
+OBS: Pra entrar em uma pasta usando comandos:
+cd aaaa = entra na pasta aaaa (nome da pasta deve ser palavra única)
+cd "aaa aaa" = entra na pasta aaa aaa (nome da pasta pode conter espaços)
+cd .. = volta para a pasta anterior
+cd aaa/bbb = entra na pasta bbb localizada dentro da pasta aaa
+cd "C:\Program Files" = entra direto na pasta Program Files
+ls = lista os arquivos na pasta atual
+ls aaaa = lista arquivos dentro da pasta aaaa
+
+
+
+
+
 #COMANDOS DE MIGRAÇÃO
 
 #Criar tabela
@@ -382,3 +404,5 @@ $('#table-corretores').DataTable( {
             }
         }
     );
+
+
