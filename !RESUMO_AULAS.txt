@@ -107,6 +107,13 @@ cd "C:\Program Files" = entra direto na pasta Program Files
 ls = lista os arquivos na pasta atual
 ls aaaa = lista arquivos dentro da pasta aaaa
 
+Não esquecer de configurar arquivo .env na raiz do projeto (pode copiar o .env.example para seguir como modelo).
+Não esquecer de configurar banco de dados.
+
+Rodar comando:
+php artisan key:generate
+
+
 
 
 
