@@ -8,6 +8,7 @@
 
 @section('content')
     <form action="{{ route('corretores.store') }}" method="post" enctype="multipart/form-data">
+    {{ csrf_field() }}
         <div class="panel-default">
             <div class="panel-heading">
                 Informe os dados do corretor a ser cadastrado.

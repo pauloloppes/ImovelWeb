@@ -38,7 +38,8 @@ class CorretorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Corretor::create($request->all());
+        return redirect()->route('corretores.index');
     }
 
     /**

@@ -514,4 +514,16 @@ Dentro do footer, criar botões:
 No controller, dentro do método create:
 return view('corretores.create');
 
+Para incluir links pra página de cadastro, colocar o seguinte parâmetro
+em qualquer objeto:
+href="{{ route('corretores.create') }}"
 
+
+Dentro do método store do CorretorController:
+Corretor::create($request->all());
+return redirect()->route('corretores.index');
+
+Dentro do Model (app/Corretor.php), adicionar após a declaração do $table:
+    protected $fillable = [
+        'nome', 'creci', 'fone', 'email'
+    ];
