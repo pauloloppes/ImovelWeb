@@ -115,6 +115,9 @@ Substituir A (iniciais em negrito) e LT (iniciais normais)
 Clonar dentro da pasta www, localizada na pasta de instalação do laravel.
 Por padrão é C:\laragon\www
 
+Se necessário, trocar o endereço do repositório usando o seguinte comando:
+git remote set-url origin novo.endereço/aqui
+
 No terminal do Laragon, entrar na pasta do projeto clonado.
 Dentro da pasta executar comando:
 composer install
