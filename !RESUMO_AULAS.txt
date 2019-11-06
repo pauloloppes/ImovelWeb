@@ -15,7 +15,7 @@
     Ctrl + P
 
 
-
+#Linha adicionada para testar merge no git.
 
 
 
@@ -28,7 +28,7 @@ composer selfupdate
 composer create-project --prefer-dist laravel/laravel:"5.5" ImovelWeb
 Clicar em Reload no Apache
 
-#Configurar o GIT dentro da pasta do projeto
+#Configurar o GIT dentro do diretório do projeto
 git config --global user.name "Nome"
 git config --global user.email "seu email do git"
 git init
