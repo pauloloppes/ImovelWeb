@@ -1,3 +1,24 @@
+#CONFIGURAÇÃO DO VSCODE
+
+#Plugins para instalar:
+	Markdown All in one
+	Auto Close Tag
+	Auto Rename Tag
+	Git Graph
+	Git History
+	IntelliSense for CSS class names in HTML
+
+#Atalho para abrir terminal dentro do programa:
+    Ctrl + '
+
+#Atalho para abrir qualquer arquivo procurando por nome:
+    Ctrl + P
+
+
+
+
+
+
 #CONFIGURAÇÃO DO LARAVEL
 
 #Atualizar o Composer
