@@ -551,3 +551,75 @@ Dentro do Model (app/Corretor.php), adicionar após a declaração do $table:
     protected $fillable = [
         'nome', 'creci', 'fone', 'email'
     ];
+
+    
+
+
+
+
+
+
+#BOOTSTRAP: Sistema de grids
+https://getbootstrap.com/docs/3.3/css/#grid
+O sistema divide a tela em 12 colunas.
+
+Dentro do resources/views/corretores/create.blade.php, colocar todos os campos dentro de um div.row:
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label for="nome">Nome do corretor</label>
+                        <input type="text" name="nome" id="nome" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-2">
+                        <label for="creci">Número do CRECI</label>
+                        <input type="text" name="creci" id="creci" class="form-control">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                        <label for="fone">Telefone de Contato</label>
+                        <input type="phone" name="fone" id="fone" class="form-control" required>
+                    </div>
+                </div>
+                    
+
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" id="email" class="form-control">
+                    </div>
+                </div>
+                
+            </div>
+
+
+
+#ARRUMANDO TELA DE EDIÇÃO DE CORRETORES
+Dentro do edit.blade.php, fazer o mesmo que o create, mas com pequenas alterações.
+
+Primeira linha da seção content, alterar a route:
+<form action="{{ route('corretores.update', $corretor->id) }}" method="post" enctype="multipart/form-data">
+
+Alterar a descrição dentro do heading.
+
+Inserir dentro de cada campo de texto o seguinte parâmetro, adaptando de acordo com o campo:
+value="{{ $corretor->creci }}"
+Nome do campo do corretor é de acordo com o banco de dados. Exemplos:
+<input type="text" name="nome" id="nome" class="form-control" required value="{{ $corretor->nome }}">
+<input type="email" name="email" id="email" class="form-control" value="{{ $corretor->email }}">
+
+
+No arquivo resources/views/corretores/index.blade.php, alterar o href do botão de edição para a route de edição de corretor:
+<a href="{{ route('corretores.edit', $corretor->id) }}" class="btn btn-warning btn-xs"><i class="fas fa-fx fa-pencil-alt"></i></a>
+
+No arquivo app/Http/Controllers/CorretorController.php, alterar o método edit da seguinte maneira:
+public function edit($id)
+    {
+        $corretor = Corretor::find($id);
+        return view('corretores.edit',compact('corretor'));
+    }
+

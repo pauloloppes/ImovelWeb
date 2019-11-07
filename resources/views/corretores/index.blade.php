@@ -37,7 +37,7 @@
                             <!-- Botão de visualização -->
                             <a href="#" class="btn btn-primary btn-xs"><i class="fas fa-fx fa-eye"></i></a>
                             <!-- Botão de edição -->
-                            <a href="#" class="btn btn-warning btn-xs"><i class="fas fa-fx fa-pencil-alt"></i></a>
+                            <a href="{{ route('corretores.edit', $corretor->id) }}" class="btn btn-warning btn-xs"><i class="fas fa-fx fa-pencil-alt"></i></a>
                             <!-- Botão de exclusão | envia um formulário ao invés de link -->
                             <form action="#" method="POST" onsubmit="return confirm('Você tem certeza que deseja excluir este registro?');" style="display: inline-block;">
                             <input type="hidden" name="_method" value="DELETE">

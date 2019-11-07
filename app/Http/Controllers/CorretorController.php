@@ -59,9 +59,10 @@ class CorretorController extends Controller
      * @param  \App\Corretor  $corretor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Corretor $corretor)
+    public function edit($id)
     {
-        //
+        $corretor = Corretor::find($id);
+        return view('corretores.edit',compact('corretor'));
     }
 
     /**
