@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Corretor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CorretorController extends Controller
 {
@@ -72,9 +73,21 @@ class CorretorController extends Controller
      * @param  \App\Corretor  $corretor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Corretor $corretor)
+    public function update(Request $request, $id)
     {
-        //
+        //Exibe os valores das variáveis entre parênteses
+        //dd($id,$request);
+
+        DB::table('corretores')
+            ->where('id',$id)
+            ->update([
+                'nome'=>$request->nome,
+                'creci'=>$request->creci,
+                'fone'=>$request->fone,
+                'email'=>$request->email
+            ]);
+
+        return redirect()->route('corretores.index');
     }
 
     /**

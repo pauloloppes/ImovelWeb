@@ -9,6 +9,7 @@
 @section('content')
 <form action="{{ route('corretores.update', $corretor->id) }}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
+    <input type="hidden" name="_method" value="PUT">
         <div class="panel-default">
             <div class="panel-heading">
                 Atualize os dados do corretor a ser editado.

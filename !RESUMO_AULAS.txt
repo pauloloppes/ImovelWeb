@@ -622,4 +622,27 @@ public function edit($id)
         $corretor = Corretor::find($id);
         return view('corretores.edit',compact('corretor'));
     }
+Alterar o método update:
+public function update(Request $request, $id)
+    {
+        //Exibe os valores das variáveis entre parênteses
+        //dd($id,$request);
 
+        DB::table('corretores')
+            ->where('id',$id)
+            ->update([
+                'nome'=>$request->nome,
+                'creci'=>$request->creci,
+                'fone'=>$request->fone,
+                'email'=>$request->email
+            ]);
+            
+        return redirect()->route('corretores.index');
+    }
+
+no começo do controller, adicionar a linha junto dos outros uses:
+use Illuminate\Support\Facades\DB;
+
+No edit.blade.php:
+Colocar dentro da seção content, antes de tudo:
+<input type="hidden" name="_method" value="PUT">
