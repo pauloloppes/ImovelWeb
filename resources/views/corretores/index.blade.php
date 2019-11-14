@@ -35,11 +35,11 @@
                         <td>{{ $corretor->email }}</td>
                         <td>
                             <!-- Botão de visualização -->
-                            <a href="#" class="btn btn-primary btn-xs"><i class="fas fa-fx fa-eye"></i></a>
+                            <a href="{{ route('corretores.show', $corretor->id) }}" class="btn btn-primary btn-xs"><i class="fas fa-fx fa-eye"></i></a>
                             <!-- Botão de edição -->
                             <a href="{{ route('corretores.edit', $corretor->id) }}" class="btn btn-warning btn-xs"><i class="fas fa-fx fa-pencil-alt"></i></a>
                             <!-- Botão de exclusão | envia um formulário ao invés de link -->
-                            <form action="#" method="POST" onsubmit="return confirm('Você tem certeza que deseja excluir este registro?');" style="display: inline-block;">
+                            <form action="{{ route('corretores.destroy', $corretor->id) }}" method="POST" onsubmit="return confirm('Você tem certeza que deseja excluir este registro?');" style="display: inline-block;">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <button type="submit" class="btn btn-danger btn-xs"><i class="fas fa-fx fa-trash-alt"></i></button>

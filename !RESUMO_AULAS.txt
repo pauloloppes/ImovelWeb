@@ -646,3 +646,89 @@ use Illuminate\Support\Facades\DB;
 No edit.blade.php:
 Colocar dentro da seção content, antes de tudo:
 <input type="hidden" name="_method" value="PUT">
+
+
+ARRUMANDO EXCLUSÃO DE CORRETOR:
+no index.blade.php:
+trocar a action do botão de exclusão pela linha abaixo:
+action="{{ route('corretores.destroy', $corretor->id) }}"
+trocar a href do botão de visualização pela linha abaixo:
+href="{{ route('corretores.show', $corretor->id) }}"
+
+no CorretorController.php:
+Arrumar a função destroy da seguinte maneira:
+public function destroy(Corretor $corretor)
+    {
+        //
+        //dd($corretor);
+        Corretor::destroy($corretor);
+        return redirect()->route('corretores.index');
+    }
+
+Arrumar a função show assim:
+public function show($id)
+    {
+        $corretor = Corretor::find($id);
+
+        return view('corretores.show',compact('corretor')); 
+    }
+
+show.blade.php deve ficar assim:
+@extends('adminlte::page')
+
+@section('title', 'Visualizar Corretor')
+
+@section('content_header')
+    <h1>Visualizar Corretor</h1>
+@stop
+
+@section('content')
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        Detalhes dos dados do corretor
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-2">
+                Nome do corretor
+            </div>
+            <div class="col-sm-10">
+                {{ $corretor->nome }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                CRECI
+            </div>
+            <div class="col-sm-10">
+                {{ $corretor->creci }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                Telefone do corretor
+            </div>
+            <div class="col-sm-10">
+                {{ $corretor->fone }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                E-mail do corretor
+            </div>
+            <div class="col-sm-10">
+                {{ $corretor->email }}
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a href="{{ route('corretores.index') }}" class="btn btn-default">Voltar</a>
+    </div>
+    </div>
+@stop
+
+@section('css')
+@stop
+
+@section('js')
+@stop

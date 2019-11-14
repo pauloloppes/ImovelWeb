@@ -49,9 +49,11 @@ class CorretorController extends Controller
      * @param  \App\Corretor  $corretor
      * @return \Illuminate\Http\Response
      */
-    public function show(Corretor $corretor)
+    public function show($id)
     {
-        //
+        $corretor = Corretor::find($id);
+
+        return view('corretores.show',compact('corretor')); 
     }
 
     /**
@@ -96,8 +98,11 @@ class CorretorController extends Controller
      * @param  \App\Corretor  $corretor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Corretor $corretor)
+    public function destroy($id)
     {
         //
+        //dd($corretor);
+        Corretor::destroy($id);
+        return redirect()->route('corretores.index');
     }
 }
